@@ -6,7 +6,7 @@
 }
 
 .text-x-sm {
-  font-size: 1.6rem;
+  font-size: clamp(1.4rem, 1.5rem, 1.6rem);
 }
 
 .text-sm {
@@ -76,11 +76,6 @@ body {
   font-weight: 700;
 }
 
-.tip-percentage-container button.active {
-  background: var(--primary-cyan);
-  color: var(--neutral-very-dark-cyan);
-}
-
 .tip-percentage-container input {
   background: var(--neutral-very-light-grayish-cyan);
   text-align: center;
@@ -89,6 +84,11 @@ body {
   box-sizing: border-box;
   width: 100%;
   color: var(--neutral-very-dark-cyan);
+}
+
+.user-input-people > section {
+  display: flex;
+  justify-content: space-between;
 }
 
 .user-input-people input {
@@ -110,6 +110,10 @@ body {
 
 .summary-data > p {
   color: var(--primary-cyan);
+}
+
+#invalid-msg {
+  color: hsl(13, 70%, 61%);
 }
 /* Utility classes */
 .card {
@@ -202,6 +206,30 @@ button,
   background: none;
   border: 2px solid var(--primary-cyan);
   color: var(--primary-cyan);
+}
+
+.hidden {
+  display: none;
+}
+
+/* Active and Hover States */
+
+button:hover,
+input:hover {
+  cursor: pointer;
+}
+
+input.valid {
+  border: 2px solid var(--primary-cyan);
+}
+
+input.invalid {
+  border: 2px solid hsl(13, 70%, 61%);
+}
+
+.tip-percentage-container button.active {
+  background: var(--primary-cyan);
+  color: var(--neutral-very-dark-cyan);
 }
 
 @media screen and (min-width: 1024px) {
