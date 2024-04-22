@@ -227,15 +227,33 @@ input.invalid {
   border: 2px solid hsl(13, 70%, 61%);
 }
 
+#calculate-btn:hover {
+  background: hsl(173, 61%, 77%);
+}
+
+#reset-btn:hover {
+  border: 2px solid hsl(173, 61%, 77%);
+  color: hsl(173, 61%, 77%);
+  text-decoration: underline;
+}
+
 .tip-percentage-container button.active {
   background: var(--primary-cyan);
   color: var(--neutral-very-dark-cyan);
+  transform: translateY(-0.5rem);
+  transition: all 0.3s ease;
+}
+
+.tip-percentage-container button:not(.active) {
+  transform: translateY(0);
+  transition: all 0.3s ease;
 }
 
 @media screen and (min-width: 1024px) {
   /* Custom styling */
   #logo {
     margin-top: 16.3rem;
+    margin-bottom: 8.8rem;
   }
 
   .summary {
