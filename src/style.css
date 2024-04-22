@@ -96,6 +96,10 @@ body {
   text-align: center;
 }
 
+.summary-data-container {
+  align-self: center;
+}
+
 .summary-data-container p:nth-child(1) {
   color: var(--white);
 }
@@ -113,8 +117,7 @@ body {
   border-top-left-radius: 2.5rem;
   border-top-right-radius: 2.5rem;
   padding: 3.2rem;
-  display: flex;
-  flex-direction: column;
+  display: grid;
 }
 
 .user-input {
@@ -180,13 +183,14 @@ button,
 .user-btns {
   margin-top: 1.2rem;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.7rem;
+  gap: 2rem;
 }
 
 .user-btns button {
   height: 4.8rem;
   font-weight: 700;
+  display: block;
+  width: 100%;
 }
 
 .user-btns button:nth-child(1) {
@@ -200,15 +204,31 @@ button,
   color: var(--primary-cyan);
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
   /* Custom styling */
   #logo {
     margin-top: 16.3rem;
   }
 
+  .summary {
+    margin: 0;
+    padding: 4rem;
+  }
+
+  .tip-percentage-container {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+
+  .user-btns {
+    margin-top: 12.2rem;
+  }
   /* Utility classes */
   .card {
     border-radius: 2.5rem;
-    flex-direction: row;
+    width: 63.889%;
+    margin: auto;
+    grid-template-columns: 1fr 1fr;
+    gap: 4.8rem;
   }
 }
