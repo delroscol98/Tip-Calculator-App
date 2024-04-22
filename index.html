@@ -24,7 +24,7 @@
     <main class="card">
       <section class="user-input">
         <section class="user-input-bill">
-          <label class="text-x-sm label" for="bill">Bill</label><br />
+          <label class="text-x-sm label" for="bill">Bill</label>
           <input
             class="text-base"
             type="number"
@@ -33,6 +33,17 @@
             value="0"
             min="0"
           />
+        </section>
+        <section class="user-input-tip">
+          <p class="text-x-sm label">Select Tip %</p>
+          <section class="tip-percentage-container">
+            <button class="text-base">5%</button>
+            <button class="text-base">10%</button>
+            <button class="text-base">15%</button>
+            <button class="text-base">20%</button>
+            <button class="text-base">25%</button>
+            <input class="text-base" type="number" placeholder="custom" />
+          </section>
         </section>
       </section>
       <section class="tip-summary"></section>

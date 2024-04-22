@@ -60,7 +60,7 @@ body {
   transform: translateX(-50%);
 }
 
-.user-input-bill label {
+.label {
   color: var(--neutral-dark-grayish-cyan);
 }
 
@@ -77,8 +77,31 @@ body {
   text-align: right;
   padding-right: 2rem;
   font-weight: 700;
+  color: var(--neutral-very-dark-cyan);
 }
 
+.tip-percentage-container button {
+  background: var(--neutral-very-dark-cyan);
+  color: var(--white);
+  height: 4.8rem;
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+}
+
+.tip-percentage-container button.active {
+  background: var(--primary-cyan);
+  color: var(--neutral-very-dark-cyan);
+}
+
+.tip-percentage-container input {
+  background: var(--neutral-very-light-grayish-cyan);
+  text-align: center;
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  box-sizing: border-box;
+  width: 100%;
+  color: var(--neutral-very-dark-cyan);
+}
 /* Utility classes */
 .card {
   background: var(--white);
@@ -92,6 +115,30 @@ body {
 .user-input {
   display: grid;
   gap: 3.2rem;
+}
+
+.user-input-bill {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.user-input-tip {
+  display: grid;
+  gap: 1.6rem;
+}
+
+.tip-percentage-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  row-gap: 1.6rem;
+  column-gap: 1.7rem;
+}
+
+.tip-percentage-container button,
+.tip-percentage-container input {
+  border-radius: 0.5rem;
+  border: none;
 }
 
 @media screen and (min-width: 768px) {
