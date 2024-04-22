@@ -95,6 +95,18 @@ body {
   background-image: url("./images/icon-person.svg");
   text-align: center;
 }
+
+.summary-data-container p:nth-child(1) {
+  color: var(--white);
+}
+
+.summary-data-container p:nth-child(2) {
+  color: var(--neutral-grayish-cyan);
+}
+
+.summary-data > p {
+  color: var(--primary-cyan);
+}
 /* Utility classes */
 .card {
   background: var(--white);
@@ -143,12 +155,49 @@ body {
   column-gap: 1.7rem;
 }
 
-.tip-percentage-container button,
+button,
 .tip-percentage-container input {
   border-radius: 0.5rem;
   border: none;
   text-align: center;
   padding: 0;
+}
+
+.summary {
+  margin-top: 3.2rem;
+  padding: 3.7rem 2.2rem 2.4rem;
+  background: var(--neutral-very-dark-cyan);
+  border-radius: 1.5rem;
+  display: grid;
+  gap: 2rem;
+}
+
+.summary .summary-data {
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-btns {
+  margin-top: 1.2rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.7rem;
+}
+
+.user-btns button {
+  height: 4.8rem;
+  font-weight: 700;
+}
+
+.user-btns button:nth-child(1) {
+  background: var(--primary-cyan);
+  color: var(--neutral-very-dark-cyan);
+}
+
+.user-btns button:nth-child(2) {
+  background: none;
+  border: 2px solid var(--primary-cyan);
+  color: var(--primary-cyan);
 }
 
 @media screen and (min-width: 768px) {
