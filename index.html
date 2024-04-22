@@ -20,6 +20,22 @@
     <script src="./src/main.js" defer></script>
   </head>
   <body>
-    <img id="logo" src="./images/logo.svg" alt="logo" />
+    <img id="logo" src="./src/images/logo.svg" alt="logo" />
+    <main class="card">
+      <section class="user-input">
+        <section class="user-input-bill">
+          <label class="text-x-sm label" for="bill">Bill</label><br />
+          <input
+            class="text-base"
+            type="number"
+            id="bill"
+            name="bill"
+            value="0"
+            min="0"
+          />
+        </section>
+      </section>
+      <section class="tip-summary"></section>
+    </main>
   </body>
 </html>

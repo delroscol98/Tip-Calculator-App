@@ -18,7 +18,7 @@
 }
 
 .text-lg {
-  font-size: 3.2rem;
+  font-size: clamp(3.2rem, 3.333vw, 4.8rem);
 }
 
 /* Colors */
@@ -60,13 +60,49 @@ body {
   transform: translateX(-50%);
 }
 
+.user-input-bill label {
+  color: var(--neutral-dark-grayish-cyan);
+}
+
+.user-input-bill input {
+  width: 100%;
+  height: 4.8rem;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: var(--neutral-very-light-grayish-cyan);
+  background-image: url("./images/icon-dollar.svg");
+  background-repeat: no-repeat;
+  background-position-x: 2rem;
+  background-position-y: center;
+  text-align: right;
+  padding-right: 2rem;
+  font-weight: 700;
+}
+
 /* Utility classes */
+.card {
+  background: var(--white);
+  border-top-left-radius: 2.5rem;
+  border-top-right-radius: 2.5rem;
+  padding: 3.2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-input {
+  display: grid;
+  gap: 3.2rem;
+}
 
 @media screen and (min-width: 768px) {
   /* Custom styling */
   #logo {
-    top: 16.3rem;
+    margin-top: 16.3rem;
   }
 
   /* Utility classes */
+  .card {
+    border-radius: 2.5rem;
+    flex-direction: row;
+  }
 }
