@@ -208,6 +208,14 @@ button,
   color: var(--primary-cyan);
 }
 
+input[type="number"]::-webkit-inner-spin-button {
+  display: none;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
 .hidden {
   display: none;
 }
@@ -219,11 +227,11 @@ input:hover {
   cursor: pointer;
 }
 
-input.valid {
+input.active {
   border: 2px solid var(--primary-cyan);
 }
 
-input.invalid {
+input.inactive {
   border: 2px solid hsl(13, 70%, 61%);
 }
 

@@ -28,22 +28,39 @@
           <input
             class="text-base"
             type="number"
+            inputmode="numeric"
             id="bill"
             name="bill"
-            placeholder="0"
+            placeholder="0.00"
             min="0"
             value=""
+            oninput="restrictTwoDecimal(this)"
           />
         </section>
         <section class="user-input-tip">
           <p class="text-x-sm label">Select Tip %</p>
           <section class="tip-percentage-container">
-            <button class="text-base">5%</button>
-            <button class="text-base">10%</button>
-            <button class="text-base">15%</button>
-            <button class="text-base">20%</button>
-            <button class="text-base">25%</button>
-            <input class="text-base" type="number" placeholder="Custom" />
+            <button class="text-base active">
+              <span class="percentage-value">5</span>%
+            </button>
+            <button class="text-base">
+              <span class="percentage-value">10</span>%
+            </button>
+            <button class="text-base">
+              <span class="percentage-value">15</span>%
+            </button>
+            <button class="text-base">
+              <span class="percentage-value">20</span>%
+            </button>
+            <button class="text-base">
+              <span class="percentage-value">25</span>%
+            </button>
+            <input
+              class="text-base percentage-value"
+              type="number"
+              placeholder="Custom"
+              value=""
+            />
           </section>
         </section>
         <section class="user-input-people">
@@ -54,11 +71,13 @@
           <input
             class="text-base"
             type="number"
+            inputmode="numeric"
             id="people"
             name="people"
             placeholder="0"
             min="0"
             value=""
+            oninput="restrictInteger(this)"
           />
         </section>
       </section>
