@@ -12,73 +12,9 @@ function restrictInteger(tis) {
   tis.setAttribute("data-prev", tis.value);
 }
 
-const activePercentageBtnHandler = (targetEl, activeEl) => {
-  targetEl !== activeEl
-    ? (targetEl.classList.add("active"), activeEl.classList.remove("active"))
-    : null;
-};
-
-const percentageBtnHandler = (e) => {
-  const percentageInputs = document.querySelectorAll(
-    ".tip-percentage-container"
-  )[0].children;
-
-  for (let i = 0; i < percentageInputs.length; i++) {
-    let input = percentageInputs[i];
-    input.addEventListener("click", (e) => {
-      const activeEl = document.querySelector(
-        ".tip-percentage-container .active"
-      );
-      const targetEl = e.target;
-      activePercentageBtnHandler(targetEl, activeEl);
-    });
-  }
-};
-
-const calculate = (bill, billPercentage, numPeople) => {
-  let tipAmountPP = 0;
-  let totalAmountPP = 0;
-
-  let billPP = Number((bill / numPeople).toFixed(2));
-  tipAmountPP = (billPP / (billPercentage / 100)).toFixed(2);
-  totalAmountPP = billPP + tipAmountPP;
-
-  console.log(tipAmountPP, totalAmountPP);
-  return [tipAmountPP, totalAmountPP];
-};
-
-const calculateBtnHandler = () => {
-  const calculateBtn = document.getElementById("calculate-btn");
-  calculateBtn.addEventListener("click", () => {
-    const tipPerPerson = document.getElementById("tip-pp");
-    const totalPerPerson = document.getElementById("total-pp");
-
-    const billValue = Number(document.getElementById("bill").value);
-    let percentageValue = 0;
-    const numberOfPeople = Number(document.getElementById("people").value);
-
-    if (document.querySelector("button.active")) {
-      percentageValue = Number(
-        document.querySelector("button.active span").innerText
-      );
-    } else {
-      percentageValue = Number(document.querySelector("input.active").value);
-    }
-
-    const [tipAmountPP, totalAmountPP] = calculate(
-      billValue,
-      percentageValue,
-      numberOfPeople
-    );
-
-    tipPerPerson.innerText = `$${tipAmountPP}`;
-    totalPerPerson.innerText = `$${totalAmountPP}`;
-  });
-};
-
-const init = () => {
-  percentageBtnHandler();
-  calculateBtnHandler();
-};
-
-init();
+//1. Get the value of the bill input and save into a BILL variable
+//2. Get the value of the percentage input and save into a PERCENTAGE variable
+//3. Get the value of the people input and save into a PEOPLE variable
+//4. Calculate the tip-per-person and the total-per-person
+//5. Render tip-per-person and total-per-person to the UI using the calculate button
+//6. Reset all the inputs and tip data to original state using the reset button
