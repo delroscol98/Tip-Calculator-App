@@ -76,6 +76,7 @@ As project become more complex it's important to use documentation to make my co
 ### Useful resources
 
 - [Youtube](https://www.youtube.com/watch?v=YK-GurROGIg&t=631s) - This video helped me to get started with JSDoc
+- [StackOverflow](https://stackoverflow.com/questions/74853399/maximum-two-decimal-check-on-input-not-working-properly?noredirect=1&lq=1) - This thread helped me to find the regular expression for two decimal places.
 
 ## Author
 
