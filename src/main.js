@@ -12,7 +12,6 @@ function restrictInteger(tis) {
   tis.setAttribute("data-prev", tis.value);
 }
 
-//4. Calculate the tip-per-person and the total-per-person
 //5. Render tip-per-person and total-per-person to the UI using the calculate button
 //6. Reset all the inputs and tip data to original state using the reset button
 
@@ -42,6 +41,7 @@ const getPercentageHandler = () => {
   return tipPercentage;
 };
 
+//4. Calculate the tip-per-person and the total-per-person
 const calculate = (bill, tipPercentage, numPeople) => {
   let tipAmountPP = 0;
   let totalAmountPP = 0;
@@ -58,6 +58,7 @@ const calculate = (bill, tipPercentage, numPeople) => {
   return [tipAmountPP, totalAmountPP];
 };
 
+//5. Render tip-per-person and total-per-person to the UI using the calculate button
 const calculateBtnHandler = () => {
   const calculateBtn = document.getElementById("calculate-btn");
   calculateBtn.addEventListener("click", () => {
@@ -78,9 +79,34 @@ const calculateBtnHandler = () => {
   });
 };
 
+const reset = () => {
+  const billInput = document.getElementById("bill");
+  const numberOfPeopleInput = document.getElementById("people");
+  const activePercentage = document.querySelector(
+    ".tip-percentage-container .percentage-value.active"
+  );
+  const defaultActivePercentage = document.querySelector(
+    ".tip-percentage-container"
+  ).children[0];
+
+  billInput.value = 0;
+  numberOfPeopleInput.value = 0;
+  if (activePercentage === defaultActivePercentage) {
+    return;
+  }
+  activePercentage.classList.remove("active");
+  defaultActivePercentage.classList.add("active");
+};
+
+const resetBtnHandler = () => {
+  const resetBtn = document.getElementById("reset-btn");
+  resetBtn.addEventListener("click", reset);
+};
+
 const init = () => {
   percentageBtnHandler();
   calculateBtnHandler();
+  resetBtnHandler();
 };
 
 init();
