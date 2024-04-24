@@ -112,7 +112,7 @@ body {
   color: var(--primary-cyan);
 }
 
-#invalid-msg {
+#error-msg {
   color: hsl(13, 70%, 61%);
 }
 /* Utility classes */

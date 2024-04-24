@@ -50,15 +50,17 @@
             <input
               class="text-base percentage-value"
               type="number"
+              inputmode="numeric"
               placeholder="Custom"
               value=""
+              min="0"
             />
           </section>
         </section>
         <section class="user-input-people">
           <section>
             <label class="text-x-sm label" for="people">Number of People</label>
-            <p id="invalid-msg" class="text-x-sm hidden">Can't be zero</p>
+            <p id="error-msg" class="text-x-sm hidden">Can't be zero</p>
           </section>
           <input
             class="text-base"
