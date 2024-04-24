@@ -51,6 +51,9 @@ const percentageBtnHandler = () => {
       const targetEl = e.target;
       targetEl.classList.add("active");
       activeEl.classList.remove("active");
+      if (activeEl.localName === "input") {
+        activeEl.value = "";
+      }
     })
   );
 };
