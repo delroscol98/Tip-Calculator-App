@@ -34,7 +34,7 @@
             placeholder="0.00"
             min="0"
             value=""
-            oninput="restrictTwoDecimal(this)"
+            oninput="restrictTwoDecimal(this, /^\d*(\.\d{0,2})?$/)"
           />
         </section>
         <section class="user-input-tip">
@@ -71,7 +71,7 @@
             placeholder="0"
             min="0"
             value=""
-            oninput="restrictInteger(this)"
+            oninput="restrict(this, /^\d*?$/)"
           />
         </section>
       </section>

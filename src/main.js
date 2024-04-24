@@ -1,17 +1,24 @@
-function restrictTwoDecimal(tis) {
+/**
+ * Restricts the bill input to two decimal places
+ * @param {Element} tis - Bill Input
+ */
+function restrict(tis, regex) {
+  // data-prev attribute is retrieved from the input and placed in a variable called prev
   let prev = tis.getAttribute("data-prev");
+
+  // If the value of data-prev is non empty leave it, otherwise set it to an empty string
   prev = prev != "" ? prev : "";
-  if (!tis.value.match(/^\d*(\.\d{0,2})?$/)) tis.value = prev;
+
+  // If the value of the input matches the passed in Regular Expression then the value of the input is set to data-prev
+  if (!tis.value.match(regex)) tis.value = prev;
+
+  // Sets the value of the data-prev attribute to the value of the string
   tis.setAttribute("data-prev", tis.value);
 }
 
-function restrictInteger(tis) {
-  let prev = tis.getAttribute("data-prev");
-  prev = prev != "" ? prev : "";
-  if (!tis.value.match(/^[0-9]*$/)) tis.value = prev;
-  tis.setAttribute("data-prev", tis.value);
-}
-
+/**
+ * Takes care of validation styling. If the input is non empty, the active class is added. If the input is empty, the inactive class is added, with an error message displayed.
+ */
 const validation = () => {
   const billInput = document.getElementById("bill");
   const peopleInput = document.getElementById("people");
@@ -40,6 +47,9 @@ const validation = () => {
   });
 };
 
+/**
+ * Changes the active element within the percentage container
+ */
 const percentageBtnHandler = () => {
   //2. Render active states based on clicked button or selected input
   const percentageBtnsAndInput = document.querySelectorAll(".percentage-value");
@@ -58,8 +68,12 @@ const percentageBtnHandler = () => {
   );
 };
 
-//2a. Get the value of the percentage input and save into a PERCENTAGE variable
+/**
+ * Returns the value of the custom percentage
+ * @returns {Element} - The value of the custom percentage
+ */
 const getPercentageHandler = () => {
+  //2a. Get the value of the percentage input and save into a PERCENTAGE variable
   const activePercentage = document.querySelector(
     ".tip-percentage-container .percentage-value.active"
   );
@@ -67,25 +81,38 @@ const getPercentageHandler = () => {
   return tipPercentage;
 };
 
-//4. Calculate the tip-per-person and the total-per-person
+/**
+ *  Caluclates the tip amount per person and the total amount per person based on the passed in bill amount, chosen tip percentage, and the indicated number of people.
+ * @param {Number} bill
+ * @param {Number} tipPercentage
+ * @param {Number} numPeople
+ * @returns {Array<Number>}
+ */
 const calculate = (bill, tipPercentage, numPeople) => {
+  //4. Calculate the tip-per-person and the total-per-person
   let tipAmountPP = 0;
   let totalAmountPP = 0;
 
+  //The passed in bill is distributed among the passed in number of people correct to two decimal places to factor in cents
   let billPP = (bill / numPeople).toFixed(2);
   console.log(`The bill per person is: $${billPP}`);
 
+  //Tip amount is upated as the bill per person is multiplied by the chosen percentage which is converted to a decimal and rounded to two decimal places.
   tipAmountPP = (billPP * (tipPercentage / 100)).toFixed(2);
   console.log(`The tip per person is: $${tipAmountPP}`);
 
+  //The previous two variables are added together to produce total.
   totalAmountPP = (+billPP + +tipAmountPP).toFixed(2);
   console.log(`The total per person is: $${totalAmountPP}`);
 
   return [tipAmountPP, totalAmountPP];
 };
 
-//5. Render tip-per-person and total-per-person to the UI using the calculate button
+/**
+ * The calculate function is triggered when the calculate button is triggered and renders the tip-per-person and total-per-person to the UI
+ */
 const calculateBtnHandler = () => {
+  //5. Render tip-per-person and total-per-person to the UI using the calculate button
   const calculateBtn = document.getElementById("calculate-btn");
   calculateBtn.addEventListener("click", () => {
     const tipAmountPPEl = document.getElementById("tip-pp");
@@ -105,8 +132,12 @@ const calculateBtnHandler = () => {
   });
 };
 
-//6. Reset all the inputs and tip data to original state using the reset button
+/**
+ * Resets all the inputs and tip data to original state using the reset button
+ * @returns {null}
+ */
 const reset = () => {
+  //6. Resets all the inputs and tip data to original state using the reset button
   const billInput = document.getElementById("bill");
   const numberOfPeopleInput = document.getElementById("people");
   const activePercentage = document.querySelector(
@@ -130,6 +161,9 @@ const resetBtnHandler = () => {
   resetBtn.addEventListener("click", reset);
 };
 
+/**
+ * Initialises all above functions
+ */
 const init = () => {
   validation();
   percentageBtnHandler();

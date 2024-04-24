@@ -1,0 +1,15 @@
+{
+  "name": "tip-calculator-app-main",
+  "version": "1.0.0",
+  "description": "Frontend Mentor Challenge: Tip Calculator App",
+  "main": "index.js",
+  "scripts": {
+    "doc": "jsdoc -c jsdoc.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jsdoc": "^4.0.2"
+  }
+}
